@@ -88,6 +88,8 @@ static void start_display_updates() {
 #endif
 }
 
+#if IS_ENABLED(CONFIG_ZMK_DISPLAY_BLANK_ON_IDLE)
+
 static void stop_display_updates() {
     if (display == NULL) {
         return;
@@ -101,6 +103,8 @@ static void stop_display_updates() {
 #endif
 }
 
+#endif
+
 int zmk_display_is_initialized() { return initialized; }
 
 void initialize_display(struct k_work *work) {
@@ -112,6 +116,8 @@ void initialize_display(struct k_work *work) {
         return;
     }
 
+    initialized = true;
+
     screen = zmk_display_status_screen();
 
     if (screen == NULL) {
@@ -122,8 +128,6 @@ void initialize_display(struct k_work *work) {
     lv_scr_load(screen);
 
     start_display_updates();
-
-    initialized = true;
 }
 
 K_WORK_DEFINE(init_work, initialize_display);

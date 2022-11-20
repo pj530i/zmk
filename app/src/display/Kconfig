@@ -13,7 +13,6 @@ if ZMK_DISPLAY
 
 config ZMK_DISPLAY_BLANK_ON_IDLE
     bool "Blank display on idle"
-    default y
 
 choice LVGL_TXT_ENC
     default LVGL_TXT_ENC_UTF8
@@ -81,6 +80,10 @@ config ZMK_DISPLAY_FULL_REFRESH_PERIOD
     help
       Period in seconds for how often to completely refresh/redraw the whole screen.
       Most useful for e-ink/EPD displays that require occasional full redraws.
+
+config ZMK_DISPLAY_HIDE_MOMENTARY_LAYERS
+    bool "Do not update layer widget for momentary layer changes"
+    default n
 
 rsource "widgets/Kconfig"
 
