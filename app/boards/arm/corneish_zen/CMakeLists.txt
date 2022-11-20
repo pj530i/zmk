@@ -4,7 +4,11 @@ if(CONFIG_ZMK_DISPLAY)
   target_sources_ifdef(CONFIG_CUSTOM_WIDGET_LAYER_STATUS app PRIVATE widgets/layer_status.c)
   target_sources_ifdef(CONFIG_CUSTOM_WIDGET_PERIPHERAL_STATUS app PRIVATE widgets/peripheral_status.c)
 
+<<<<<<< HEAD
   add_subdirectory_ifdef(CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM  widgets/icons)
+=======
+  add_subdirectory_ifdef(CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM widgets/icons)
+>>>>>>> a5901ae1193f26a4968261b4cedf884aa65ee89b
 endif()
 
 zephyr_library()
@@ -48,7 +52,14 @@ if(CONFIG_ZMK_DISPLAY)
     zephyr_library_sources(widgets/icons/layers2.c)
   endif()
   if(CONFIG_BOARD_CORNEISH_ZEN_V2_RIGHT)
+<<<<<<< HEAD
     zephyr_library_sources(widgets/icons/zenlogo.c)
+=======
+    target_sources_ifdef(CONFIG_CUSTOM_WIDGET_LOGO_IMAGE_ZEN app PRIVATE widgets/icons/zenlogo.c)
+    target_sources_ifdef(CONFIG_CUSTOM_WIDGET_LOGO_IMAGE_LPKB app PRIVATE widgets/icons/lpkblogo.c)
+    target_sources_ifdef(CONFIG_CUSTOM_WIDGET_LOGO_IMAGE_ZMK app PRIVATE widgets/icons/zmklogo.c)
+    target_sources_ifdef(CONFIG_CUSTOM_WIDGET_LOGO_IMAGE_MIRYOKU app PRIVATE widgets/icons/miryokulogo.c)
+>>>>>>> a5901ae1193f26a4968261b4cedf884aa65ee89b
   endif()
 endif()
 
@@ -57,4 +68,8 @@ zephyr_library_include_directories(${ZEPHYR_BASE}/lib/gui/lvgl/)
 zephyr_library_sources_ifdef(CONFIG_ZMK_DISPLAY custom_status_screen.c)
 zephyr_library_sources(${ZEPHYR_BASE}/misc/empty_file.c)
 zephyr_library_include_directories(${CMAKE_SOURCE_DIR}/include)
+<<<<<<< HEAD
 zephyr_library_include_directories(${ZEPHYR_BASE}/drivers)
+=======
+zephyr_library_include_directories(${ZEPHYR_BASE}/drivers)
+>>>>>>> a5901ae1193f26a4968261b4cedf884aa65ee89b

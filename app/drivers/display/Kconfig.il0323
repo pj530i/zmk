@@ -11,5 +11,5 @@ config IL0323
 	  Enable driver for IL0323 compatible controller.
 
 config IL0323_INVERT
-	bool "Invert display"
-	default n
+       bool "Invert display"
+       default n

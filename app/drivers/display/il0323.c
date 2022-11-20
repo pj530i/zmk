@@ -262,7 +262,7 @@ static void il0323_get_capabilities(const struct device *dev, struct display_cap
     caps->current_pixel_format = PIXEL_FORMAT_MONO01;
 #else
     caps->current_pixel_format = PIXEL_FORMAT_MONO10;
-#endif    
+#endif
     caps->screen_info = SCREEN_INFO_MONO_MSB_FIRST | SCREEN_INFO_EPD;
 }
 

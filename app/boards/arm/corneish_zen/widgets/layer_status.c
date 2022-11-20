@@ -27,6 +27,25 @@ static void set_layer_symbol(lv_obj_t *label, struct layer_status_state state) {
     const char *layer_label = state.label;
     uint8_t active_layer_index = state.index;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> da688eb9... Hide momentary layers in Zen layer widget
+#if IS_ENABLED(CONFIG_ZMK_DISPLAY_HIDE_MOMENTARY_LAYERS)
+    static uint8_t last_perm_index = 255;
+    if (!zmk_keymap_layer_momentary(active_layer_index) && last_perm_index != active_layer_index) {
+        last_perm_index = active_layer_index;
+        LOG_DBG("Last perm layer index updated to %i", active_layer_index);
+    } else {
+        return;
+    }
+#endif
+
+<<<<<<< HEAD
+>>>>>>> a5901ae1193f26a4968261b4cedf884aa65ee89b
+=======
+>>>>>>> da688eb9... Hide momentary layers in Zen layer widget
     if (layer_label == NULL) {
         char text[6] = {};
 
@@ -64,4 +83,12 @@ int zmk_widget_layer_status_init(struct zmk_widget_layer_status *widget, lv_obj_
 
 lv_obj_t *zmk_widget_layer_status_obj(struct zmk_widget_layer_status *widget) {
     return widget->obj;
+<<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a5901ae1193f26a4968261b4cedf884aa65ee89b
+=======
+}
+>>>>>>> da688eb9... Hide momentary layers in Zen layer widget
