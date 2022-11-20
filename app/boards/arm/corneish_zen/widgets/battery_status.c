@@ -42,32 +42,7 @@ LV_IMG_DECLARE(batt_0);
 LV_IMG_DECLARE(batt_0_chg);
 
 static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
-    static uint8_t stage_prev = 255;
-    static bool usb_prev = false;
 
->>>>>>> 6adb8de7... Do not update battery widget if no change
-    uint8_t level = state.level;
-    bool usb_present = state.usb_present;
-    uint8_t stage;
-
-    if (level > 87) {
-        stage = 5;
-    } else if (level > 62) {
-        stage = 4;
-    } else if (level > 37) {
-        stage = 3;
-    } else if (level > 12) {
-        stage = 2;
-    } else if (level > 5) {
-        stage = 1;
-    } else {
-<<<<<<< HEAD
-        lv_img_set_src(icon, state.usb_present ? &batt_0_chg : &batt_0);
-=======
 #if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
     static uint8_t stage_prev = 255;
     static bool usb_prev = false;
@@ -87,8 +62,6 @@ static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state
     } else if (level > 5) {
         stage = 1;
     } else {
-=======
->>>>>>> 6adb8de7... Do not update battery widget if no change
         stage = 0;
     }
 
@@ -116,10 +89,6 @@ static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state
         }
         usb_prev = usb_present;
         stage_prev = stage;
-<<<<<<< HEAD
->>>>>>> a5901ae1193f26a4968261b4cedf884aa65ee89b
-=======
->>>>>>> 6adb8de7... Do not update battery widget if no change
     }
 #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 }
